@@ -1,0 +1,75 @@
+# RUN these commands as root on first login.
+
+# Add regular user.
+adduser dev
+usermod -aG sudo dev
+mv .ssh/ /home/dev/
+chmod -R 700 /home/dev/.ssh/
+chmod 600 /home/dev/.ssh/authorized_keys
+chown -R dev: /home/dev/.ssh/
+
+# Alter the fllowing lines in the SSHD configuration file.
+# PasswordAuthentication no
+# PubkeyAuthentication yes
+# ChallengeResponseAuthentication no
+# PermitRootLogin no
+nano /etc/ssh/sshd_config
+
+# Reload SSHD.
+systemctl reload sshd
+
+# Configure firewall.
+ufw default allow outgoing
+ufw default deny incoming
+ufw allow 22/tcp
+ufw allow 80/tcp
+ufw allow 443/tcp
+ufw enable
+
+# Fully update, and reboot.
+apt update
+apt full-upgrade
+apt autoremove
+apt autoclean
+reboot
+
+# RUN these commands as regular user, after reboot.
+
+# Install Apache, PHP, and various dependencies.
+sudo apt install apache2 zip unzip
+sudo apt install php php-mcrypt php-gd php-mbstring php-xml php-zip
+
+# Install composer.
+sudo curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+sudo chmod 755 /usr/local/bin/composer
+
+# Install Laravel.
+cd /var/www/html/
+sudo git clone https://github.com/laravel/laravel.git
+sudo mv laravel/* .
+sudo mv laravel/.* .
+sudo rmdir laravel/
+
+sudo composer install
+sudo chown www-data: -R /var/www/html/
+
+sudo mv .env.example .env
+sudo php artisan key:generate
+# Add key to app.php as formatted below.
+# 'key' => env('APP_KEY', 'base64:7fO056YxZu8M2NwBWVEQfaKERi+D1t6Ws8i0Y2yW/vE='),
+sudo nano config/app.php
+
+# Alter DocumentRoot in Apache configuration to Laravel public directory.
+# Also add the following.
+# <Directory /var/www/html/>
+# 	Options FollowSymLinks
+# 	AllowOverride All
+# 	Order allow,deny
+# 	allow from all
+# </Directory>
+sudo nano /etc/apache2/sites-available/000-default.conf
+
+# Reload Apache.
+sudo systemctl reload apache2
+
