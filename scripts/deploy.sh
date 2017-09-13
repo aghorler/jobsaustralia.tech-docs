@@ -9,7 +9,7 @@ chmod -R 777 storage/
 cp /var/www/.env .env
 php artisan cache:clear
 composer dump-autoload
-php artisan migrate --force
+
 
 cd /var/www/
 sudo rm -rf /var/www/html/
