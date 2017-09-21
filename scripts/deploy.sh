@@ -21,3 +21,5 @@ cp /var/www/.env .env
 php artisan cache:clear
 composer dump-autoload
 php artisan migrate --force --seed
+
+ln -s /var/www/html/storage/app/public/resumes/ /var/www/employ.jobsaustralia.tech/storage/app/public/
