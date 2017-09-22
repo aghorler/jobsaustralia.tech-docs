@@ -1,0 +1,23 @@
+Ranking considerations (Employer side):
+Min. years of experience
+Highest education level
+Skills list
+
+Ranking considerations (Job seeker side):
+Salary (?)
+
+
+Weighting
+0 | 100 --> x0.4 | x0.35 | x0.25
+
+
+E.g. 
+Skill = 80%
+Experience = 100%
+Education = 0%
+
+
+Skill > Experience > Education = 67% total
+Experience > Skill > Education = 68% total
+Education > Skill > Experience = 53% total
+Education > Experience > Skill = 55% total
