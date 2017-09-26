@@ -161,21 +161,30 @@ function match(){
 					/* Calculate skillMatch. */
 					var skillMatch = (count / bitCheck.length);
 					
-                    /* Calculate percentage match. */
+					/* Copy of ranking array. */
+					var rankCopy = [];
+					
 					var k;
 					for(k = 0; k < ranking.length; k++)
 					{
-						if(ranking[k] == 'experience')
+						rankCopy[k] = ranking[k];
+					}
+					
+                    /* Calculate percentage match. */
+					var l;
+					for(l = 0; l < rankCopy.length; l++)
+					{
+						if(rankCopy[l] == 'experience')
 						{
-							ranking[k] = expMatch;
+							rankCopy[l] = expMatch;
 						}
-						else if(ranking[k] == 'education')
+						else if(rankCopy[l] == 'education')
 						{
-							ranking[k] = eduMatch;
+							rankCopy[l] = eduMatch;
 						}
-						else if(ranking[k] == 'skills')
+						else if(rankCopy[l] == 'skills')
 						{
-							ranking[k] = skillMatch;
+							rankCopy[l] = skillMatch;
 						}
 					}
 					
