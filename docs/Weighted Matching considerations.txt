@@ -7,7 +7,7 @@ Ranking considerations (Job seeker side):
 Salary (?)
 
 
-Weighting
+Weighting:
 0 | 100 --> x0.4 | x0.35 | x0.25
 
 
