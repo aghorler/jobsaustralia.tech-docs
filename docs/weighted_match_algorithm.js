@@ -48,11 +48,11 @@ for(j = 0; j < ranking.length; j++)
 	}
 	else if(ranking[j] == 'education')
 	{
-		ranking[j] == eduMatch;
+		ranking[j] = eduMatch;
 	}
 	else if(ranking[j] == 'skills')
 	{
-		ranking[j] == skillMatch;
+		ranking[j] = skillMatch;
 	}
 }
 

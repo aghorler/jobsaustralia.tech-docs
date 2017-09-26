@@ -171,11 +171,11 @@ function match(){
 						}
 						else if(ranking[k] == 'education')
 						{
-							ranking[k] == eduMatch;
+							ranking[k] = eduMatch;
 						}
 						else if(ranking[k] == 'skills')
 						{
-							ranking[k] == skillMatch;
+							ranking[k] = skillMatch;
 						}
 					}
 					
