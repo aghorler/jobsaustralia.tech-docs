@@ -92,10 +92,10 @@ function match(){
         }
 		
 		/* Get min. number of years experience for job. */
-		expJob = job.experience;
+		expJob = job.minexperience;
 		
 		/* Get min. education level for job. */
-		eduJob = job.education;
+		eduJob = job.mineducation;
 		
 		/* Populate ranking array. */
 		ranking[0] = job.rankone;
@@ -188,7 +188,7 @@ function match(){
 						}
 					}
 					
-                    percentageMatch[i] = ((ranking[0] * weightOne) + (ranking[1] * weightTwo) + (ranking[2] * weightThree)) * 100;
+                    percentageMatch[i] = ((rankCopy[0] * weightOne) + (rankCopy[1] * weightTwo) + (rankCopy[2] * weightThree)) * 100;
                 }
 
                 /* Bubble sort. */
