@@ -1,4 +1,5 @@
 #! /bin/bash
+# NOTICE: This process may require a reboot.
 
 sudo apt update
 sudo apt upgrade

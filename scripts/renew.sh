@@ -1,4 +1,5 @@
 #! /bin/bash
+# WARNING: This script assumes all certificates are issued successfully. This script makes no attempt to backup current credentials. This script regenerates private keys. This script will cause temporary downtime for clients.
 
 # Stop Apache.
 service apache2 stop
